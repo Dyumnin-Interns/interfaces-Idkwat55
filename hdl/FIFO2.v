@@ -69,13 +69,17 @@ module FIFO2(CLK,
 `else // not BSV_NO_INITIAL_BLOCKS
    // synopsys translate_off
    initial
-     begin
+     begin 
+     /* verilator lint_off WIDTHTRUNC */
         data0_reg   = {((width + 1)/2) {2'b10}} ;
         data1_reg  = {((width + 1)/2) {2'b10}} ;
         empty_reg = 1'b0;
         full_reg  = 1'b1;
+        data0_reg   = {((width + 1)/2) {2'b10}} ;
      end // initial begin
-   // synopsys translate_on
+ 
+     /* verilator lint_on WIDTHTRUNC */
+     // synopsys translate_on
 `endif // BSV_NO_INITIAL_BLOCKS
 
    always@(posedge CLK `BSV_ARESET_EDGE_META)

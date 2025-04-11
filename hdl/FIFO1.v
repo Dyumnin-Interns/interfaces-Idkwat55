@@ -60,9 +60,11 @@ module FIFO1(CLK,
 `else // not BSV_NO_INITIAL_BLOCKS
    // synopsys translate_off
    initial
-     begin
+     begin 
+     /* verilator lint_off WIDTHTRUNC */
         D_OUT   = {((width + 1)/2) {2'b10}} ;
         empty_reg = 1'b0 ;
+	/* verilator lint_on 	WIDTHTRUNC */
      end // initial begin
    // synopsys translate_on
 `endif // BSV_NO_INITIAL_BLOCKS
